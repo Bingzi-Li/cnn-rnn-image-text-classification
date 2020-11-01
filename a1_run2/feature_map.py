@@ -28,7 +28,7 @@ def load_data(file):
     return data, labels
 
 
-def plot_featuremap(model, image):
+def plot_featuremap(model, image, name):
     ''' Fill in Question 1(b) here. This website may help:
             https://towardsdatascience.com/visualizing-intermediate-activation-in-convolutional-neural-networks-with-keras-260b36d60d0
     '''
@@ -79,16 +79,14 @@ def plot_featuremap(model, image):
 
         fig = plt.figure(figsize=(20, 8))
 
-        # size = layer_activation.shape[1]
-        # scale = 1. / size
-        # fig = plt.figure(figsize=(scale * 10, scale * 5))
         for i in range(50):
             ax = fig.add_subplot(5, 10, i+1)
             channel_image = layer_activation[0, :, :, i]
-            ax.matshow(channel_image, cmap='viridis')
+            ax.matshow(channel_image, cmap='gray')
         plt.title(layer_name)
         plt.grid(False)
-        plt.show()
+        plt.savefig(f'./a1_run2/feature_maps/{name}_{layer_name}.png')
+        # plt.show()
 
 
 def summary(model):
@@ -128,4 +126,5 @@ else:
     model = keras.models.load_model(
         f'./a1_run2/models/{num_ch_c1}_{num_ch_c2}_{optimizer_}_no_dropout')
 
-plot_featuremap(model, x_test[0].reshape(1, 3072))
+plot_featuremap(model, x_test[0].reshape(1, 3072), 'test_image1')
+plot_featuremap(model, x_test[1].reshape(1, 3072), 'test_image2')

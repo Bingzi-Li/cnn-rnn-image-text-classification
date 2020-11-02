@@ -28,7 +28,8 @@ def print_acc(ch_c1, ch_c2, optimizer_):
             hist_path = f'./a1_run4//histories/{num_ch_c1}_{num_ch_c2}_{optimizer_}_no_dropout'
             with open(hist_path, 'rb') as file:
                 history = pickle.load(file)
-                accs[f'c1:{num_ch_c1}_c2:{num_ch_c2}'] = history['val_accuracy'][-1]
+                accs[f'c1:{num_ch_c1}_c2:{num_ch_c2}'] = max(
+                    history['val_accuracy'])
 
     sorted_accs = sorted(accs.items(), key=lambda x: x[1], reverse=True)
     for k, v in sorted_accs:

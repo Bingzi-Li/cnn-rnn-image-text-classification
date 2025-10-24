@@ -1,7 +1,19 @@
-# Part A: Image Recognition
-- Abstract-The aim of this project is to build a CNN model to classify the a sample of the CIFAR-10 dataset, which contains RGB color images of size 32x32 and their corresponding labels from 0 to 9.
-- Keywords: Image dataset, CNN, Classification, Keras
+# Object and Text Classification Using Deep Learning
 
-# Part B: Text Classification
-- Abstract-The aim of this experiment is to build a model to classify each entry as a paragraph from Wikipedia to 15 categories such as people, company, schools.
-- Keywords: Classification, Neural Networks, Keras, Text mbedding, CNN, RNN
+This project explores CNN and RNN architectures for both image and text classification tasks.
+
+## Tasks
+- **Object Recognition:** CIFAR-10 dataset with CNNs, grid search on convolutional filters, and optimizer comparison.
+- **Text Classification:** Wikipedia paragraphs classified into 15 categories using word/character embeddings and RNN variants (GRU, LSTM).
+
+## Techniques
+- Grid search and dropout regularization
+- Word-level vs character-level embeddings
+- Model comparison: CNN vs RNN performance and convergence speed
+
+## Results
+- Improved CIFAR-10 accuracy from 34% → 54% using optimized CNN.
+- Text classification up to **87.9%** accuracy using WordRNN with dropout.
+
+## Tech Stack
+- Python, Keras, TensorFlow, NumPy
